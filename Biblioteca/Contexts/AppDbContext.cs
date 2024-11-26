@@ -9,5 +9,7 @@ namespace Biblioteca.Contexts
 
         // De acuerdo a nombres de las tablas
         public DbSet<Pais> Paises { get; set; }
+
+        public DbSet<Genero> Generos { get; set; }
     }
 }
