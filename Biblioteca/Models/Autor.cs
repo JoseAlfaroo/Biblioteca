@@ -10,10 +10,10 @@ public class Autor
   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
   public int? AutorID { get; set; }
 
-  [Required]
+
   public string? NombresAutor { get; set; }
 
-  [Required]
+
   public string? ApellidosAutor { get; set; }
 
   public int? PaisID { get; set; }
