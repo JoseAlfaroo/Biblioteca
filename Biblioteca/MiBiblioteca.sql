@@ -1,142 +1,191 @@
--- 11/07/2024 --
+-- 06/12/2024 --
+
 Use Master;
 Go
 
 Drop Database If Exists MiBiblioteca;
 Go
 
--- Create the database
-Create Database MiBiblioteca
+Create Database MiBiblioteca;
 Go
 
--- Use the database
-Use MiBiblioteca
+Use MiBiblioteca;
 Go
 
---------------------------------
--- Create Paises table
 Create Table Paises (
     PaisID Int Identity(1,1) Not Null Primary Key,
-    NombrePais NVarchar(Max) Not Null
-)
+    NombrePais NVarchar(100) Not Null
+);
 Go
 
--- Insert records into Paises
-Insert Into Paises (NombrePais) Values ('Brasil')
-Insert Into Paises (NombrePais) Values ('SAJKJKSJB')
-Insert Into Paises (NombrePais) Values ('sHBKBJKJKBl')
-Insert Into Paises (NombrePais) Values ('SFKJSBA')
-Insert Into Paises (NombrePais) Values ('SA3223F')
+Insert Into Paises (NombrePais) Values 
+('Brasil'),
+('Japón'),
+('Reino Unido'),
+('Chile'),
+('Estados Unidos'),
+('Colombia'),
+('México'),
+('Francia'),
+('Alemania'),
+('Canadá');
 Go
 
--- Display records from Paises
-Select * From Paises
+Select * From Paises;
 Go
 
---------------------------------
--- Create Autores table
 Create Table Autores (
     AutorID Int Identity(1,1) Not Null Primary Key,
-    NombresAutor NVarchar(Max) Not Null,
-    ApellidosAutor NVarchar(Max) Not Null,
+    NombresAutor NVarchar(100) Not Null,
+    ApellidosAutor NVarchar(100) Not Null,
     PaisID Int Null References Paises(PaisID) On Delete Set Null
-)
+);
 Go
 
--- Insert records into Autores
-Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values ('Gabriel', 'Garcia Marquez', 1)
-Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values ('Haruki', 'Murakami', 2)
-Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values ('J.K.', 'Rowling', 3)
-Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values ('Isabel', 'Allende', 4)
-Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values ('Mark', 'Twain', 5)
+Insert Into Autores (NombresAutor, ApellidosAutor, PaisID) Values 
+('Gabriel', 'García Márquez', 6),
+('Haruki', 'Murakami', 2),
+('J.K.', 'Rowling', 3),
+('Isabel', 'Allende', 4),
+('Mark', 'Twain', 5),
+('Carlos', 'Fuentes', 7),
+('Victor', 'Hugo', 8),
+('Hermann', 'Hesse', 9),
+('Margaret', 'Atwood', 10),
+('Paulo', 'Coelho', 1);
 Go
 
--- Display records from Autores
-Select * From Autores
+Select * From Autores;
 Go
 
--- 12/07/2024 --
-
--- Create Generos table
 Create Table Generos (
     GeneroID Int Identity(1,1) Not Null Primary Key,
-    NombreGenero NVarchar(Max) Not Null
-)
+    NombreGenero NVarchar(100) Not Null
+);
 Go
 
--- Insert records into Generos
-Insert Into Generos (NombreGenero) Values ('Fiction')
-Insert Into Generos (NombreGenero) Values ('Mystery')
-Insert Into Generos (NombreGenero) Values ('Fantasy')
-Insert Into Generos (NombreGenero) Values ('Non-fiction')
-Insert Into Generos (NombreGenero) Values ('Sci-Fi')
+Insert Into Generos (NombreGenero) Values 
+('Fiction'),
+('Mystery'),
+('Fantasy'),
+('Non-fiction'),
+('Sci-Fi'),
+('Historical Fiction'),
+('Biography'),
+('Thriller'),
+('Romance'),
+('Horror');
 Go
 
--- Display records from Generos
-Select * From Generos
+Select * From Generos;
 Go
 
---------------------------------
--- Create Libros table
 Create Table Libros (
     LibroID Int Identity(1,1) Not Null Primary Key,
-    Titulo NVarchar(Max) Not Null,
+    Titulo NVarchar(200) Not Null,
     AñoPublicacion Int Not Null,
     Portada NVarchar(Max),
     Descripcion NVarchar(Max)
-)
+);
 Go
 
--- Insert records into Libros
-Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values ('One Hundred Years of Solitude', 1967, 'URL_to_image', 'A novel by Gabriel García Márquez.')
-Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values ('Kafka on the Shore', 2002, 'URL_to_image', 'A novel by Haruki Murakami.')
-Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values ('Harry Potter and the Sorcerers Stone', 1997, 'URL_to_image', 'A fantasy novel by J.K. Rowling.')
-Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values ('The House of the Spirits', 1982, 'URL_to_image', 'A novel by Isabel Allende.')
-Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values ('Adventures of Huckleberry Finn', 1884, 'URL_to_image', 'A novel by Mark Twain.')
+Insert Into Libros (Titulo, AñoPublicacion, Portada, Descripcion) Values 
+('One Hundred Years of Solitude', 1967, 'URL_to_image', 'A novel by Gabriel García Márquez.'),
+('Kafka on the Shore', 2002, 'URL_to_image', 'A novel by Haruki Murakami.'),
+('Harry Potter and the Sorcerers Stone', 1997, 'URL_to_image', 'A fantasy novel by J.K. Rowling.'),
+('The House of the Spirits', 1982, 'URL_to_image', 'A novel by Isabel Allende.'),
+('Adventures of Huckleberry Finn', 1884, 'URL_to_image', 'A novel by Mark Twain.'),
+('The Alchemist', 1988, 'URL_to_image', 'A novel by Paulo Coelho.'),
+('Les Misérables', 1862, 'URL_to_image', 'A novel by Victor Hugo.'),
+('Siddhartha', 1922, 'URL_to_image', 'A novel by Hermann Hesse.'),
+('The Handmaids Tale', 1985, 'URL_to_image', 'A novel by Margaret Atwood.'),
+('Aura', 1962, 'URL_to_image', 'A novel by Carlos Fuentes.');
 Go
 
--- Display records from Libros
-Select * From Libros
+Select * From Libros;
 Go
 
---------------------------------
--- Create GenerosLibro table (Many-to-Many between Generos and Libros)
 Create Table GenerosLibro (
     Primary Key (LibroID, GeneroID),
     LibroID Int Not Null References Libros(LibroID),
     GeneroID Int Not Null References Generos(GeneroID)
-)
+);
 Go
 
--- Insert records into GenerosLibro
-Insert Into GenerosLibro (LibroID, GeneroID) Values (1, 1) -- One Hundred Years of Solitude - Fiction
-Insert Into GenerosLibro (LibroID, GeneroID) Values (2, 2) -- Kafka on the Shore - Mystery
-Insert Into GenerosLibro (LibroID, GeneroID) Values (3, 3) -- Harry Potter - Fantasy
-Insert Into GenerosLibro (LibroID, GeneroID) Values (4, 1) -- The House of the Spirits - Fiction
-Insert Into GenerosLibro (LibroID, GeneroID) Values (5, 1) -- Adventures of Huckleberry Finn - Fiction
+Insert Into GenerosLibro (LibroID, GeneroID) Values 
+(1, 1), (1, 6),
+(2, 2),
+(3, 3), (3, 9),
+(4, 1),
+(5, 1), (5, 6),
+(6, 1), (6, 5),
+(7, 1), (7, 6),
+(8, 1), (8, 7),
+(9, 1), (9, 4),
+(10, 1), (10, 2);
 Go
 
--- Display records from GenerosLibro
-Select * From GenerosLibro
+Select * From GenerosLibro;
 Go
 
---------------------------------
--- Create AutoresLibro table (Many-to-Many between Autores and Libros)
 Create Table AutoresLibro (
-    Primary Key (LibroID, AutorID), 
+    Primary Key (LibroID, AutorID),
     LibroID Int Not Null References Libros(LibroID),
     AutorID Int Not Null References Autores(AutorID)
-)
+);
 Go
 
--- Insert records into AutoresLibro
-Insert Into AutoresLibro (LibroID, AutorID) Values (1, 1) -- One Hundred Years of Solitude - Gabriel García Márquez
-Insert Into AutoresLibro (LibroID, AutorID) Values (2, 2) -- Kafka on the Shore - Haruki Murakami
-Insert Into AutoresLibro (LibroID, AutorID) Values (3, 3) -- Harry Potter - J.K. Rowling
-Insert Into AutoresLibro (LibroID, AutorID) Values (4, 4) -- The House of the Spirits - Isabel Allende
-Insert Into AutoresLibro (LibroID, AutorID) Values (5, 5) -- Adventures of Huckleberry Finn - Mark Twain
+Insert Into AutoresLibro (LibroID, AutorID) Values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 10),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 6);
 Go
 
--- Display records from AutoresLibro
-Select * From AutoresLibro
+Select * From AutoresLibro;
+Go
+
+Create Table Roles (
+    RolId Int Identity(1,1) Not Null Primary Key,
+    NombreRol NVarchar(50) Not Null Unique
+);
+Go
+
+Insert Into Roles (NombreRol) Values 
+('Administrador'),
+('Usuario');
+Go
+
+Select * From Roles;
+Go
+
+Create Table Usuarios (
+    UsuarioId Int Identity(1,1) Not Null Primary Key,
+    Nombres NVarchar(100) Not Null,
+    Apellidos NVarchar(100) Not Null,
+    Username Varchar(50) Not Null Unique,
+    Email Varchar(100) Not Null Unique,
+    Password Varchar(255) Not Null,
+    FechaRegistro DateTime Not Null Default GetDate(),
+    FechaActualizacion DateTime Not Null Default GetDate(),
+    IntentosFallidos Int Not Null Default 0,
+    UltimoIntento DateTime Null Default GetDate(),
+    RolId Int Not Null References Roles(RolId) On Delete Cascade
+);
+Go
+
+Insert Into Usuarios (Nombres, Apellidos, Username, Email, Password, RolId) Values
+('Juan', 'Pérez', 'jperez', 'juan.perez@example.com', 'hashed_password_1', 1),
+('María', 'García', 'mgarcia', 'maria.garcia@example.com', 'hashed_password_2', 2),
+('Luis', 'Ramírez', 'lramirez', 'luis.ramirez@example.com', 'hashed_password_3', 2),
+('Ana', 'López', 'alopez', 'ana.lopez@example.com', 'hashed_password_4', 2);
+Go
+
+Select * From Usuarios;
 Go

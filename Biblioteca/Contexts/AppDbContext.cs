@@ -3,15 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Contexts
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
         // De acuerdo a nombres de las tablas
         public DbSet<Pais> Paises { get; set; }
-
         public DbSet<Autor> Autores { get; set; }
-
         public DbSet<Genero> Generos { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
