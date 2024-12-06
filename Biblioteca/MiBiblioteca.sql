@@ -180,11 +180,11 @@ Create Table Usuarios (
 );
 Go
 
-Insert Into Usuarios (Nombres, Apellidos, Username, Email, Password, RolId) Values
-('Juan', 'Pérez', 'jperez', 'juan.perez@example.com', 'hashed_password_1', 1),
-('María', 'García', 'mgarcia', 'maria.garcia@example.com', 'hashed_password_2', 2),
-('Luis', 'Ramírez', 'lramirez', 'luis.ramirez@example.com', 'hashed_password_3', 2),
-('Ana', 'López', 'alopez', 'ana.lopez@example.com', 'hashed_password_4', 2);
+Insert Into Usuarios (Nombres, Apellidos, Username, Email, Password, RolId) Values -- Todo Password aquí es "string"
+('Juan', 'Pérez', 'jperez', 'juan.perez@example.com', '$2a$11$r17Bj.zYCV4wmpPf7nB/T.RuHaKuf8y.J3g53pp2CfQYqA1afOpeq', 1),
+('María', 'García', 'mgarcia', 'maria.garcia@example.com', '$2a$11$r17Bj.zYCV4wmpPf7nB/T.RuHaKuf8y.J3g53pp2CfQYqA1afOpeq', 2),
+('Luis', 'Ramírez', 'lramirez', 'luis.ramirez@example.com', '$2a$11$r17Bj.zYCV4wmpPf7nB/T.RuHaKuf8y.J3g53pp2CfQYqA1afOpeq', 2),
+('Ana', 'López', 'alopez', 'ana.lopez@example.com', '$2a$11$r17Bj.zYCV4wmpPf7nB/T.RuHaKuf8y.J3g53pp2CfQYqA1afOpeq', 2);
 Go
 
 Select * From Usuarios;
